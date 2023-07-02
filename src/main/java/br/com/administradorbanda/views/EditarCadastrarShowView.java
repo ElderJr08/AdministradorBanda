@@ -4,19 +4,28 @@
  */
 package br.com.administradorbanda.views;
 
+import br.com.administradorbanda.banco.BancoDeDados;
+import br.com.administradorbanda.dao.ShowsDAO;
+import br.com.administradorbanda.models.ShowsModel;
 import br.com.administradorbanda.utilitarios.JanelaUtils;
+import java.sql.Connection;
 
 /**
  *
  * @author elder
  */
 public class EditarCadastrarShowView extends javax.swing.JFrame {
-
+    Connection conexaoBanco = BancoDeDados.getConnection();
+    ShowsDAO showsDao = new ShowsDAO(conexaoBanco);
+    ShowsModel model = new ShowsModel(showsDao);
+    
     /**
      * Creates new form EditarCadastrarShow
      */
     public EditarCadastrarShowView() {
         initComponents();
+        
+        tabelaEditarCadastrarShow.setModel(model);
     }
 
     /**
