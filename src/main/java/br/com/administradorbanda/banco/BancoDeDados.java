@@ -20,9 +20,12 @@ public class BancoDeDados {
     public static Connection getConnection() {
         Connection conexao = null;
         try {
-            Class.forName("org.hsqldb.jdbc.JDBCDriver");
-            conexao = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-            System.out.println("Conexão bem-sucedida!");
+            if(conexao == null) {
+                Class.forName("org.hsqldb.jdbc.JDBCDriver");
+                conexao = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+                System.out.println("Conexão bem-sucedida!");
+            }
+           
             return conexao;
         } catch (ClassNotFoundException e) {
             System.out.println("Driver do HSQLDB não encontrado: " + e.getMessage());
