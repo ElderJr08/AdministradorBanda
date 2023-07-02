@@ -8,12 +8,12 @@ package br.com.administradorbanda;
  *
  * @author elder
  */
-public class EditarCadastrarShow extends javax.swing.JFrame {
+public class EditarCadastrarShowView extends javax.swing.JFrame {
 
     /**
      * Creates new form EditarCadastrarShow
      */
-    public EditarCadastrarShow() {
+    public EditarCadastrarShowView() {
         initComponents();
     }
 
@@ -65,6 +65,11 @@ public class EditarCadastrarShow extends javax.swing.JFrame {
         jLabel3.setText("Data");
 
         btnVoltarEditarCadastrarShowView.setText("<");
+        btnVoltarEditarCadastrarShowView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarEditarCadastrarShowViewActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Horario");
 
@@ -158,6 +163,13 @@ public class EditarCadastrarShow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtHorarioActionPerformed
 
+    private void btnVoltarEditarCadastrarShowViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarEditarCadastrarShowViewActionPerformed
+        ShowsView showsView = new ShowsView();
+        this.dispose();
+        JanelaUtils.centralizar(showsView);
+        showsView.setVisible(true);
+    }//GEN-LAST:event_btnVoltarEditarCadastrarShowViewActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -175,20 +187,23 @@ public class EditarCadastrarShow extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EditarCadastrarShow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditarCadastrarShowView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EditarCadastrarShow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditarCadastrarShowView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EditarCadastrarShow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditarCadastrarShowView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EditarCadastrarShow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditarCadastrarShowView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EditarCadastrarShow().setVisible(true);
+                EditarCadastrarShowView editarCadastrarShowView = new EditarCadastrarShowView();
+                JanelaUtils.centralizar(editarCadastrarShowView);
+                editarCadastrarShowView.setVisible(true);
             }
         });
     }

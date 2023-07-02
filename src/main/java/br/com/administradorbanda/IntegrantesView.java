@@ -37,6 +37,11 @@ public class IntegrantesView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnVoltarIntegrantesView.setText("<");
+        btnVoltarIntegrantesView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarIntegrantesViewActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel2.setText("Integrantes");
@@ -112,8 +117,18 @@ public class IntegrantesView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEditarCadastrarIntegranteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarCadastrarIntegranteActionPerformed
-        // TODO add your handling code here:
+        EditarCadastrarIntegranteView editarCadastrarIntegranteView = new EditarCadastrarIntegranteView();
+        this.dispose();
+        JanelaUtils.centralizar(editarCadastrarIntegranteView);
+        editarCadastrarIntegranteView.setVisible(true);
     }//GEN-LAST:event_btnEditarCadastrarIntegranteActionPerformed
+
+    private void btnVoltarIntegrantesViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarIntegrantesViewActionPerformed
+        MenuView menuView = new MenuView();
+        this.dispose();
+        JanelaUtils.centralizar(menuView);
+        menuView.setVisible(true);
+    }//GEN-LAST:event_btnVoltarIntegrantesViewActionPerformed
 
     /**
      * @param args the command line arguments
@@ -145,7 +160,9 @@ public class IntegrantesView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new IntegrantesView().setVisible(true);
+                IntegrantesView integrantesView = new IntegrantesView();
+                JanelaUtils.centralizar(integrantesView);
+                integrantesView.setVisible(true);
             }
         });
     }

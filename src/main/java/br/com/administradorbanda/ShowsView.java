@@ -65,6 +65,11 @@ public class ShowsView extends javax.swing.JFrame {
         txtBuscarShow.setToolTipText("Busca por local do show");
 
         btnVoltarShowsView.setText("<");
+        btnVoltarShowsView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarShowsViewActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -112,8 +117,18 @@ public class ShowsView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEditarCadastrarShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarCadastrarShowActionPerformed
-        // TODO add your handling code here:
+        EditarCadastrarShowView editarCadastrarShowView = new EditarCadastrarShowView();
+        this.dispose();
+        JanelaUtils.centralizar(editarCadastrarShowView);
+        editarCadastrarShowView.setVisible(true);
     }//GEN-LAST:event_btnEditarCadastrarShowActionPerformed
+
+    private void btnVoltarShowsViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarShowsViewActionPerformed
+        MenuView menuView = new MenuView();
+        this.dispose();
+        JanelaUtils.centralizar(menuView);
+        menuView.setVisible(true);
+    }//GEN-LAST:event_btnVoltarShowsViewActionPerformed
 
     /**
      * @param args the command line arguments
@@ -145,7 +160,9 @@ public class ShowsView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ShowsView().setVisible(true);
+                ShowsView showsView = new ShowsView();
+                JanelaUtils.centralizar(showsView);
+                showsView.setVisible(true);
             }
         });
     }

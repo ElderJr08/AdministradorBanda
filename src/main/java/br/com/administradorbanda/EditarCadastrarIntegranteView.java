@@ -59,6 +59,11 @@ public class EditarCadastrarIntegranteView extends javax.swing.JFrame {
         btnMusicaSalvar.setText("Salvar");
 
         btnVoltarEditarCadastrarIntegranteView.setText("<");
+        btnVoltarEditarCadastrarIntegranteView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarEditarCadastrarIntegranteViewActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Nome");
 
@@ -102,9 +107,9 @@ public class EditarCadastrarIntegranteView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(btnVoltarEditarCadastrarIntegranteView))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnVoltarEditarCadastrarIntegranteView, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -126,6 +131,13 @@ public class EditarCadastrarIntegranteView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnVoltarEditarCadastrarIntegranteViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarEditarCadastrarIntegranteViewActionPerformed
+        IntegrantesView integrantesView = new IntegrantesView();
+        this.dispose();
+        JanelaUtils.centralizar(integrantesView);
+        integrantesView.setVisible(true);
+    }//GEN-LAST:event_btnVoltarEditarCadastrarIntegranteViewActionPerformed
 
     /**
      * @param args the command line arguments
@@ -158,7 +170,9 @@ public class EditarCadastrarIntegranteView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EditarCadastrarIntegranteView().setVisible(true);
+                EditarCadastrarIntegranteView editarCadastrarIntegranteView = new EditarCadastrarIntegranteView();
+                JanelaUtils.centralizar(editarCadastrarIntegranteView);
+                editarCadastrarIntegranteView.setVisible(true);
             }
         });
     }

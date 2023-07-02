@@ -65,6 +65,11 @@ public class MusicasView extends javax.swing.JFrame {
         txtBuscarMusica.setToolTipText("Busca por nome da musica");
 
         btnVoltarMusicasView.setText("<");
+        btnVoltarMusicasView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarMusicasViewActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -112,8 +117,18 @@ public class MusicasView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEditarCadastrarMusicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarCadastrarMusicaActionPerformed
-        // TODO add your handling code here:
+        EditarCadastrarMusicaView editarCadastrarMusicaView = new EditarCadastrarMusicaView();
+        this.dispose();
+        JanelaUtils.centralizar(editarCadastrarMusicaView);
+        editarCadastrarMusicaView.setVisible(true);
     }//GEN-LAST:event_btnEditarCadastrarMusicaActionPerformed
+
+    private void btnVoltarMusicasViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarMusicasViewActionPerformed
+        MenuView menuView = new MenuView();
+        this.dispose();
+        JanelaUtils.centralizar(menuView);
+        menuView.setVisible(true);
+    }//GEN-LAST:event_btnVoltarMusicasViewActionPerformed
 
     /**
      * @param args the command line arguments
@@ -145,7 +160,9 @@ public class MusicasView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MusicasView().setVisible(true);
+                MusicasView musicasView = new MusicasView();
+                JanelaUtils.centralizar(musicasView);
+                musicasView.setVisible(true);
             }
         });
     }

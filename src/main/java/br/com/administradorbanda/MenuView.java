@@ -4,6 +4,11 @@
  */
 package br.com.administradorbanda;
 
+import java.awt.Dimension;
+import java.awt.GraphicsEnvironment;
+import java.awt.Point;
+import java.awt.Window;
+
 /**
  *
  * @author elder
@@ -30,7 +35,7 @@ public class MenuView extends javax.swing.JFrame {
         btnMusicas = new javax.swing.JButton();
         btnIntegrantes = new javax.swing.JButton();
         btnShows = new javax.swing.JButton();
-        btnVolt = new javax.swing.JButton();
+        btnMenuSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -38,6 +43,11 @@ public class MenuView extends javax.swing.JFrame {
         jLabel1.setText("Menu");
 
         btnMusicas.setText("Musicas");
+        btnMusicas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMusicasActionPerformed(evt);
+            }
+        });
 
         btnIntegrantes.setText("Integrantes");
         btnIntegrantes.addActionListener(new java.awt.event.ActionListener() {
@@ -47,8 +57,18 @@ public class MenuView extends javax.swing.JFrame {
         });
 
         btnShows.setText("Shows");
+        btnShows.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnShowsActionPerformed(evt);
+            }
+        });
 
-        btnVolt.setText("Sair");
+        btnMenuSair.setText("Sair");
+        btnMenuSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuSairActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -71,7 +91,7 @@ public class MenuView extends javax.swing.JFrame {
                 .addContainerGap(169, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnVolt)
+                .addComponent(btnMenuSair)
                 .addGap(24, 24, 24))
         );
         layout.setVerticalGroup(
@@ -86,7 +106,7 @@ public class MenuView extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnShows)
                 .addGap(82, 82, 82)
-                .addComponent(btnVolt)
+                .addComponent(btnMenuSair)
                 .addContainerGap(10, Short.MAX_VALUE))
         );
 
@@ -94,8 +114,32 @@ public class MenuView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIntegrantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIntegrantesActionPerformed
-        // TODO add your handling code here:
+        IntegrantesView integrantesView = new IntegrantesView();
+        this.dispose();
+        JanelaUtils.centralizar(integrantesView);
+        integrantesView.setVisible(true);
     }//GEN-LAST:event_btnIntegrantesActionPerformed
+
+    private void btnMusicasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMusicasActionPerformed
+        MusicasView musicaView = new MusicasView();
+        this.dispose();
+        JanelaUtils.centralizar(musicaView);
+        musicaView.setVisible(true);
+    }//GEN-LAST:event_btnMusicasActionPerformed
+
+    private void btnShowsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowsActionPerformed
+        ShowsView showsView = new ShowsView();
+        this.dispose();
+        JanelaUtils.centralizar(showsView);
+        showsView.setVisible(true);
+    }//GEN-LAST:event_btnShowsActionPerformed
+
+    private void btnMenuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuSairActionPerformed
+        Main main = new Main();
+        this.dispose();
+        JanelaUtils.centralizar(main);
+        main.setVisible(true);
+    }//GEN-LAST:event_btnMenuSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -128,16 +172,19 @@ public class MenuView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuView().setVisible(true);
+                MenuView menuView = new MenuView();
+                JanelaUtils.centralizar(menuView);
+                menuView.setVisible(true);
             }
         });
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIntegrantes;
+    private javax.swing.JButton btnMenuSair;
     private javax.swing.JButton btnMusicas;
     private javax.swing.JButton btnShows;
-    private javax.swing.JButton btnVolt;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

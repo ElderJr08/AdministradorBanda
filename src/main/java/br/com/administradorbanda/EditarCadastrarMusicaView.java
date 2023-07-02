@@ -69,6 +69,11 @@ public class EditarCadastrarMusicaView extends javax.swing.JFrame {
         btnMusicaSalvar.setText("Salvar");
 
         btnVoltarEditarCadastrarMusicaView.setText("<");
+        btnVoltarEditarCadastrarMusicaView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarEditarCadastrarMusicaViewActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -109,9 +114,9 @@ public class EditarCadastrarMusicaView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(btnVoltarEditarCadastrarMusicaView))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnVoltarEditarCadastrarMusicaView, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel6))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -137,6 +142,13 @@ public class EditarCadastrarMusicaView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnVoltarEditarCadastrarMusicaViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarEditarCadastrarMusicaViewActionPerformed
+        MusicasView musicasView = new MusicasView();
+        this.dispose();
+        JanelaUtils.centralizar(musicasView);
+        musicasView.setVisible(true);
+    }//GEN-LAST:event_btnVoltarEditarCadastrarMusicaViewActionPerformed
 
     /**
      * @param args the command line arguments
@@ -169,7 +181,9 @@ public class EditarCadastrarMusicaView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EditarCadastrarMusicaView().setVisible(true);
+                EditarCadastrarMusicaView editarCadastrarMusicaView = new EditarCadastrarMusicaView();
+                JanelaUtils.centralizar(editarCadastrarMusicaView);
+                editarCadastrarMusicaView.setVisible(true);
             }
         });
     }
