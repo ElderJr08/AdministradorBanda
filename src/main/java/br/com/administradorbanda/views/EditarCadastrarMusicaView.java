@@ -2,18 +2,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package br.com.administradorbanda;
+package br.com.administradorbanda.views;
+
+import br.com.administradorbanda.utilitarios.JanelaUtils;
 
 /**
  *
  * @author elder
  */
-public class EditarCadastrarShowView extends javax.swing.JFrame {
+public class EditarCadastrarMusicaView extends javax.swing.JFrame {
 
     /**
-     * Creates new form EditarCadastrarShow
+     * Creates new form CadastrarMusicaView
      */
-    public EditarCadastrarShowView() {
+    public EditarCadastrarMusicaView() {
         initComponents();
     }
 
@@ -26,23 +28,31 @@ public class EditarCadastrarShowView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tabelaEditarCadastrarShow = new javax.swing.JTable();
-        jLabel6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        btnMusicaSalvar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        btnVoltarEditarCadastrarShowView = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtLocal = new javax.swing.JTextField();
-        txtData = new javax.swing.JTextField();
-        txtHorario = new javax.swing.JTextField();
+        txtTitulo = new javax.swing.JTextField();
+        txtDuracao = new javax.swing.JTextField();
+        txtAlbum = new javax.swing.JTextField();
         txtBanda = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabelaEditarCadastrarMusica = new javax.swing.JTable();
+        jLabel6 = new javax.swing.JLabel();
+        btnMusicaSalvar = new javax.swing.JButton();
+        btnVoltarEditarCadastrarMusicaView = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        tabelaEditarCadastrarShow.setModel(new javax.swing.table.DefaultTableModel(
+        jLabel2.setText("Titulo");
+
+        jLabel3.setText("Duracao");
+
+        jLabel4.setText("Album");
+
+        jLabel5.setText("Banda");
+
+        tabelaEditarCadastrarMusica.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -53,37 +63,17 @@ public class EditarCadastrarShowView extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tabelaEditarCadastrarShow);
+        jScrollPane1.setViewportView(tabelaEditarCadastrarMusica);
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel6.setText("Shows - Editar/Cadastrar");
-
-        jLabel2.setText("Local");
+        jLabel6.setText("Musicas - Editar/Cadastrar");
 
         btnMusicaSalvar.setText("Salvar");
 
-        jLabel3.setText("Data");
-
-        btnVoltarEditarCadastrarShowView.setText("<");
-        btnVoltarEditarCadastrarShowView.addActionListener(new java.awt.event.ActionListener() {
+        btnVoltarEditarCadastrarMusicaView.setText("<");
+        btnVoltarEditarCadastrarMusicaView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVoltarEditarCadastrarShowViewActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setText("Horario");
-
-        jLabel5.setText("Banda");
-
-        txtLocal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLocalActionPerformed(evt);
-            }
-        });
-
-        txtHorario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtHorarioActionPerformed(evt);
+                btnVoltarEditarCadastrarMusicaViewActionPerformed(evt);
             }
         });
 
@@ -104,17 +94,17 @@ public class EditarCadastrarShowView extends javax.swing.JFrame {
                                     .addComponent(jLabel2))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtData)
-                                    .addComponent(txtLocal)
-                                    .addComponent(txtHorario)
+                                    .addComponent(txtDuracao)
+                                    .addComponent(txtTitulo)
+                                    .addComponent(txtAlbum)
                                     .addComponent(txtBanda, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnVoltarEditarCadastrarShowView)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnVoltarEditarCadastrarMusicaView)
+                                .addGap(115, 115, 115)
                                 .addComponent(jLabel6)
                                 .addGap(127, 127, 127))))
                     .addGroup(layout.createSequentialGroup()
@@ -126,21 +116,21 @@ public class EditarCadastrarShowView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(btnVoltarEditarCadastrarShowView))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnVoltarEditarCadastrarMusicaView, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel6))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtLocal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDuracao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txtHorario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -155,20 +145,12 @@ public class EditarCadastrarShowView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtLocalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLocalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtLocalActionPerformed
-
-    private void txtHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHorarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtHorarioActionPerformed
-
-    private void btnVoltarEditarCadastrarShowViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarEditarCadastrarShowViewActionPerformed
-        ShowsView showsView = new ShowsView();
+    private void btnVoltarEditarCadastrarMusicaViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarEditarCadastrarMusicaViewActionPerformed
+        MusicasView musicasView = new MusicasView();
         this.dispose();
-        JanelaUtils.centralizar(showsView);
-        showsView.setVisible(true);
-    }//GEN-LAST:event_btnVoltarEditarCadastrarShowViewActionPerformed
+        JanelaUtils.centralizar(musicasView);
+        musicasView.setVisible(true);
+    }//GEN-LAST:event_btnVoltarEditarCadastrarMusicaViewActionPerformed
 
     /**
      * @param args the command line arguments
@@ -187,13 +169,13 @@ public class EditarCadastrarShowView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EditarCadastrarShowView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditarCadastrarMusicaView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EditarCadastrarShowView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditarCadastrarMusicaView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EditarCadastrarShowView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditarCadastrarMusicaView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EditarCadastrarShowView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditarCadastrarMusicaView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -201,26 +183,26 @@ public class EditarCadastrarShowView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                EditarCadastrarShowView editarCadastrarShowView = new EditarCadastrarShowView();
-                JanelaUtils.centralizar(editarCadastrarShowView);
-                editarCadastrarShowView.setVisible(true);
+                EditarCadastrarMusicaView editarCadastrarMusicaView = new EditarCadastrarMusicaView();
+                JanelaUtils.centralizar(editarCadastrarMusicaView);
+                editarCadastrarMusicaView.setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMusicaSalvar;
-    private javax.swing.JButton btnVoltarEditarCadastrarShowView;
+    private javax.swing.JButton btnVoltarEditarCadastrarMusicaView;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tabelaEditarCadastrarShow;
+    private javax.swing.JTable tabelaEditarCadastrarMusica;
+    private javax.swing.JTextField txtAlbum;
     private javax.swing.JTextField txtBanda;
-    private javax.swing.JTextField txtData;
-    private javax.swing.JTextField txtHorario;
-    private javax.swing.JTextField txtLocal;
+    private javax.swing.JTextField txtDuracao;
+    private javax.swing.JTextField txtTitulo;
     // End of variables declaration//GEN-END:variables
 }

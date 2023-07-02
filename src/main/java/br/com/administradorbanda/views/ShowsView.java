@@ -2,7 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package br.com.administradorbanda;
+package br.com.administradorbanda.views;
+
+import br.com.administradorbanda.utilitarios.JanelaUtils;
+import br.com.administradorbanda.views.MenuView;
+import br.com.administradorbanda.views.EditarCadastrarShowView;
 
 /**
  *

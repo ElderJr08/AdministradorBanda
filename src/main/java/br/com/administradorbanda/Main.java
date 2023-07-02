@@ -4,6 +4,9 @@
  */
 package br.com.administradorbanda;
 
+import br.com.administradorbanda.utilitarios.JanelaUtils;
+import br.com.administradorbanda.views.MenuView;
+
 /**
  *
  * @author elder
