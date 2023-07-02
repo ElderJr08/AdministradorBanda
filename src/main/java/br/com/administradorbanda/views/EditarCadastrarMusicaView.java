@@ -9,6 +9,7 @@ import br.com.administradorbanda.dao.MusicasDAO;
 import br.com.administradorbanda.models.MusicasModel;
 import br.com.administradorbanda.utilitarios.JanelaUtils;
 import java.sql.Connection;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -78,6 +79,11 @@ public class EditarCadastrarMusicaView extends javax.swing.JFrame {
         jLabel6.setText("Musicas - Editar/Cadastrar");
 
         btnMusicaSalvar.setText("Salvar");
+        btnMusicaSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMusicaSalvarActionPerformed(evt);
+            }
+        });
 
         btnVoltarEditarCadastrarMusicaView.setText("<");
         btnVoltarEditarCadastrarMusicaView.addActionListener(new java.awt.event.ActionListener() {
@@ -161,6 +167,34 @@ public class EditarCadastrarMusicaView extends javax.swing.JFrame {
         musicasView.setVisible(true);
     }//GEN-LAST:event_btnVoltarEditarCadastrarMusicaViewActionPerformed
 
+    private void btnMusicaSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMusicaSalvarActionPerformed
+        String titulo = txtTitulo.getText();
+        int duracao = Integer.parseInt(txtDuracao.getText());
+        String album = txtAlbum.getText();
+        String banda = txtBanda.getText();
+        
+        if(validarCampos(titulo, duracao, album, banda)) {
+            this.model.cadastrarMusica(titulo, duracao, album, banda);
+            limparCampos();   
+        }
+    }//GEN-LAST:event_btnMusicaSalvarActionPerformed
+
+    
+    public void limparCampos() {
+        txtTitulo.setText("");
+        txtDuracao.setText("");
+        txtAlbum.setText("");
+        txtBanda.setText("");
+    }
+    
+    public boolean validarCampos(String titulo, int duracao, String album, String banda) {
+        if(titulo.trim().isEmpty() || album.trim().isEmpty() || banda.trim().isEmpty() || String.valueOf(duracao).isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Campos nao preenchidos");
+            return false;
+        }
+        return true;
+    }
+    
     /**
      * @param args the command line arguments
      */

@@ -24,6 +24,12 @@ public class MusicasModel extends AbstractTableModel{
         this.musicas = musicasDao.buscarMusicas();
     }
     
+    public void cadastrarMusica(String titulo, int duracao, String album, String banda) {
+        this.musicasDao.cadastrarMusica(titulo, duracao, album, banda);
+        this.musicas = musicasDao.buscarMusicas();
+        this.fireTableDataChanged();
+    }
+    
     public void buscarMusicaPorTitulo (String tituloMusica) {
         this.musicas = musicasDao.buscarMusicaPorTitulo(tituloMusica);
         this.fireTableDataChanged();
