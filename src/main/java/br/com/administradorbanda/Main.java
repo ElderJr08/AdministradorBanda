@@ -4,14 +4,21 @@
  */
 package br.com.administradorbanda;
 
+import br.com.administradorbanda.banco.BancoDeDados;
+import br.com.administradorbanda.dao.LoginDAO;
+import br.com.administradorbanda.entidades.LoginEntidade;
 import br.com.administradorbanda.utilitarios.JanelaUtils;
 import br.com.administradorbanda.views.MenuView;
+import java.sql.Connection;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author elder
  */
 public class Main extends javax.swing.JFrame {
+    Connection conexaoBanco = BancoDeDados.getConnection();
+    LoginDAO loginDao = new LoginDAO(conexaoBanco);
 
     /**
      * Creates new form Main
@@ -110,10 +117,18 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_senhaActionPerformed
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        MenuView menuView = new MenuView();
-        this.dispose();
-        JanelaUtils.centralizar(menuView);
-        menuView.setVisible(true);
+        String usuarioValor = usuario.getText();
+        String senhaValor = String.valueOf(senha.getPassword());
+        LoginEntidade login = loginDao.buscarLogin(usuarioValor, senhaValor);
+        
+        if(login != null) {
+            MenuView menuView = new MenuView();
+            this.dispose();
+            JanelaUtils.centralizar(menuView);
+            menuView.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(this, "usuario ou senha incorretos!");
+        }
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     /**
