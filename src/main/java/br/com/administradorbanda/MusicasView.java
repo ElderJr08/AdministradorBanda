@@ -4,17 +4,24 @@
  */
 package br.com.administradorbanda;
 
+import java.sql.Connection;
+
 /**
  *
  * @author elder
  */
 public class MusicasView extends javax.swing.JFrame {
+    Connection conexaoBanco = BancoDeDados.getConnection();
+    MusicasDAO musicasDao = new MusicasDAO(conexaoBanco);
+    MusicasModel model = new MusicasModel(musicasDao);
 
     /**
      * Creates new form MusicasView
      */
     public MusicasView() {
         initComponents();
+        
+        tabelaListarMusicas.setModel(model);
     }
 
     /**
