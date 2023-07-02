@@ -16,9 +16,9 @@ public class BancoDeDados {
     private static final String DB_URL = "jdbc:hsqldb:hsql://localhost/";
     private static final String DB_USER = "SA";
     private static final String DB_PASSWORD = "";
+    private static Connection conexao = null;
 
     public static Connection getConnection() {
-        Connection conexao = null;
         try {
             if(conexao == null) {
                 Class.forName("org.hsqldb.jdbc.JDBCDriver");

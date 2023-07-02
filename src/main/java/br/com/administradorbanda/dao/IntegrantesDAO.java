@@ -6,6 +6,7 @@ package br.com.administradorbanda.dao;
 
 import br.com.administradorbanda.entidades.IntegranteEntidade;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -27,16 +28,18 @@ public class IntegrantesDAO {
         
         try {
             if(conexaoBanco != null) {
-                Statement statement = conexaoBanco.createStatement();
-                ResultSet resultSet = statement.executeQuery("SELECT * FROM integrantes");
+                String query = "SELECT * FROM integrantes";
+                
+                PreparedStatement statement = conexaoBanco.prepareStatement(query);
+                ResultSet resultSet = statement.executeQuery();
 
                 while (resultSet.next()) {
                     int id = resultSet.getInt("id");
                     String nome = resultSet.getString("nome");
                     String funcao = resultSet.getString("funcao");
 
-                    IntegranteEntidade musica = new IntegranteEntidade(id, nome, funcao);
-                    integrantes.add(musica);
+                    IntegranteEntidade integrante = new IntegranteEntidade(id, nome, funcao);
+                    integrantes.add(integrante);
                 }
 
                 resultSet.close();

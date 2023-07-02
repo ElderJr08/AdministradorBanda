@@ -6,6 +6,7 @@ package br.com.administradorbanda.dao;
 
 import br.com.administradorbanda.entidades.ShowEntidade;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -27,8 +28,10 @@ public class ShowsDAO {
         
         try {
             if(conexaoBanco != null) {
-                Statement statement = conexaoBanco.createStatement();
-                ResultSet resultSet = statement.executeQuery("SELECT * FROM shows");
+                String query = "SELECT * FROM shows";
+                
+                PreparedStatement statement = conexaoBanco.prepareStatement(query);
+                ResultSet resultSet = statement.executeQuery();
 
                 while (resultSet.next()) {
                     int id = resultSet.getInt("id");
