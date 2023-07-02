@@ -4,20 +4,29 @@
  */
 package br.com.administradorbanda.views;
 
+import br.com.administradorbanda.banco.BancoDeDados;
+import br.com.administradorbanda.dao.IntegrantesDAO;
+import br.com.administradorbanda.models.IntegrantesModel;
 import br.com.administradorbanda.utilitarios.JanelaUtils;
 import br.com.administradorbanda.views.EditarCadastrarIntegranteView;
+import java.sql.Connection;
 
 /**
  *
  * @author elder
  */
 public class IntegrantesView extends javax.swing.JFrame {
+    Connection conexaoBanco = BancoDeDados.getConnection();
+    IntegrantesDAO integrantesDAO = new IntegrantesDAO(conexaoBanco);
+    IntegrantesModel model = new IntegrantesModel(integrantesDAO);
 
     /**
      * Creates new form IntegrantesView
      */
     public IntegrantesView() {
         initComponents();
+        
+        tabelaListarIntegrantes.setModel(model);
     }
 
     /**
@@ -32,7 +41,7 @@ public class IntegrantesView extends javax.swing.JFrame {
         btnVoltarIntegrantesView = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabelaListarMusicas = new javax.swing.JTable();
+        tabelaListarIntegrantes = new javax.swing.JTable();
         btnEditarCadastrarIntegrante = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         txtBuscarMusica = new javax.swing.JTextField();
@@ -49,7 +58,7 @@ public class IntegrantesView extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel2.setText("Integrantes");
 
-        tabelaListarMusicas.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaListarIntegrantes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -60,7 +69,7 @@ public class IntegrantesView extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tabelaListarMusicas);
+        jScrollPane1.setViewportView(tabelaListarIntegrantes);
 
         btnEditarCadastrarIntegrante.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         btnEditarCadastrarIntegrante.setText("Editar/Cadastrar");
@@ -176,7 +185,7 @@ public class IntegrantesView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tabelaListarMusicas;
+    private javax.swing.JTable tabelaListarIntegrantes;
     private javax.swing.JTextField txtBuscarMusica;
     // End of variables declaration//GEN-END:variables
 }

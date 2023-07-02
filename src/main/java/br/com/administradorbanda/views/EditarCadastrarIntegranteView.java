@@ -4,19 +4,28 @@
  */
 package br.com.administradorbanda.views;
 
+import br.com.administradorbanda.banco.BancoDeDados;
+import br.com.administradorbanda.dao.IntegrantesDAO;
+import br.com.administradorbanda.models.IntegrantesModel;
 import br.com.administradorbanda.utilitarios.JanelaUtils;
+import java.sql.Connection;
 
 /**
  *
  * @author elder
  */
 public class EditarCadastrarIntegranteView extends javax.swing.JFrame {
+    Connection conexaoBanco = BancoDeDados.getConnection();
+    IntegrantesDAO integrantesDAO = new IntegrantesDAO(conexaoBanco);
+    IntegrantesModel model = new IntegrantesModel(integrantesDAO);
 
     /**
      * Creates new form EditarCadastrarIntegrante
      */
     public EditarCadastrarIntegranteView() {
         initComponents();
+        
+        tabelaEditarCadastrarIntegrante.setModel(model);
     }
 
     /**
