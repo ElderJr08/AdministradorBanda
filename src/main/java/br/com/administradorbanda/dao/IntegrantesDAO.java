@@ -63,7 +63,7 @@ public class IntegrantesDAO {
                 String query = "SELECT * FROM integrantes WHERE UPPER(nome) LIKE UPPER(?)";
                 
                 PreparedStatement statement = conexaoBanco.prepareStatement(query);
-                statement.setString(1, nomeIntegrante.concat("%"));
+                statement.setString(1, "%".concat(nomeIntegrante.concat("%")));
 
                 ResultSet resultSet = statement.executeQuery();
 

@@ -64,7 +64,7 @@ public class MusicasDAO {
                 String query = "SELECT * FROM musicas WHERE UPPER(titulo) LIKE UPPER(?)";
                 
                 PreparedStatement statement = conexaoBanco.prepareStatement(query);
-                statement.setString(1, tituloMusica.concat("%"));
+                statement.setString(1, "%".concat(tituloMusica.concat("%")));
                 
                 ResultSet resultSet = statement.executeQuery();
 

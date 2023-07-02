@@ -54,4 +54,39 @@ public class ShowsDAO {
 
         return shows;
     }
+    
+    public ArrayList<ShowEntidade> buscarShowsPorLocal(String localShow) {
+        ArrayList<ShowEntidade> shows = new ArrayList<>();
+        
+        try {
+            if(conexaoBanco != null) {
+                String query = "SELECT * FROM shows WHERE UPPER(local) LIKE UPPER(?)";
+                
+                PreparedStatement statement = conexaoBanco.prepareStatement(query);
+                statement.setString(1, "%".concat(localShow.concat("%")));
+
+                ResultSet resultSet = statement.executeQuery();
+
+                while (resultSet.next()) {
+                    int id = resultSet.getInt("id");
+                    String local = resultSet.getString("local");
+                    String data = resultSet.getString("data");
+                    String banda = resultSet.getString("banda");
+
+                    ShowEntidade show = new ShowEntidade(id, local, data, banda);
+                    shows.add(show);
+                }
+
+                resultSet.close();
+                statement.close();
+           } else {
+                ShowEntidade show = new ShowEntidade(1, "Sao Paulo - SP", "02/07/2023", "Dupin");
+                shows.add(show);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return shows;
+    }
 }

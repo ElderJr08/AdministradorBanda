@@ -76,6 +76,11 @@ public class ShowsView extends javax.swing.JFrame {
         jLabel1.setText("Buscar:");
 
         txtBuscarShow.setToolTipText("Busca por local do show");
+        txtBuscarShow.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtBuscarShowKeyPressed(evt);
+            }
+        });
 
         btnVoltarShowsView.setText("<");
         btnVoltarShowsView.addActionListener(new java.awt.event.ActionListener() {
@@ -142,6 +147,16 @@ public class ShowsView extends javax.swing.JFrame {
         JanelaUtils.centralizar(menuView);
         menuView.setVisible(true);
     }//GEN-LAST:event_btnVoltarShowsViewActionPerformed
+
+    private void txtBuscarShowKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarShowKeyPressed
+        String buscarShowValor = txtBuscarShow.getText();
+        
+        if(buscarShowValor.length() >= 3) {
+            model.buscarShowsPorLocal(buscarShowValor);
+        } else {
+            model.buscarShows();
+        }
+    }//GEN-LAST:event_txtBuscarShowKeyPressed
 
     /**
      * @param args the command line arguments
