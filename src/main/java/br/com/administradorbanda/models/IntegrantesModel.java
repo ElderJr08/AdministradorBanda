@@ -24,6 +24,12 @@ public class IntegrantesModel extends AbstractTableModel{
         this.integrantes = integrantesDao.buscarIntegrantes();
     }
     
+    public void cadastrarIntegrante(String nome, String funcao, String banda) {
+        integrantesDao.cadastrarIntegrante(nome, funcao, banda);
+        this.integrantes = integrantesDao.buscarIntegrantes();
+        this.fireTableDataChanged();
+    }
+    
     public void buscarIntegrantesPorNome(String nomeIntegrante) {
         this.integrantes = integrantesDao.buscarIntegrantesPorNome(nomeIntegrante);
         this.fireTableDataChanged();

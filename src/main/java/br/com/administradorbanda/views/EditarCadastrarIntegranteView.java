@@ -9,6 +9,7 @@ import br.com.administradorbanda.dao.IntegrantesDAO;
 import br.com.administradorbanda.models.IntegrantesModel;
 import br.com.administradorbanda.utilitarios.JanelaUtils;
 import java.sql.Connection;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -68,6 +69,11 @@ public class EditarCadastrarIntegranteView extends javax.swing.JFrame {
         jLabel6.setText("Integrantes - Editar/Cadastrar");
 
         btnMusicaSalvar.setText("Salvar");
+        btnMusicaSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMusicaSalvarActionPerformed(evt);
+            }
+        });
 
         btnVoltarEditarCadastrarIntegranteView.setText("<");
         btnVoltarEditarCadastrarIntegranteView.addActionListener(new java.awt.event.ActionListener() {
@@ -150,6 +156,32 @@ public class EditarCadastrarIntegranteView extends javax.swing.JFrame {
         integrantesView.setVisible(true);
     }//GEN-LAST:event_btnVoltarEditarCadastrarIntegranteViewActionPerformed
 
+    private void btnMusicaSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMusicaSalvarActionPerformed
+        String nome = txtNome.getText();
+        String funcao = txtFuncao.getText();
+        String banda = txtBanda.getText();
+        
+        if(validarCampos(nome, funcao, banda)) {
+            this.model.cadastrarIntegrante(nome, funcao, banda);
+            limparCampos();   
+        }
+    }//GEN-LAST:event_btnMusicaSalvarActionPerformed
+
+    
+    public void limparCampos() {
+        txtNome.setText("");
+        txtFuncao.setText("");
+        txtBanda.setText("");
+    }
+    
+    public boolean validarCampos(String nome, String funca, String banda) {
+        if(nome.trim().isEmpty() || funca.trim().isEmpty() || banda.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Campos nao preenchidos");
+            return false;
+        }
+        return true;
+    }
+    
     /**
      * @param args the command line arguments
      */

@@ -5,11 +5,14 @@
 package br.com.administradorbanda.dao;
 
 import br.com.administradorbanda.entidades.IntegranteEntidade;
+import br.com.administradorbanda.utilitarios.RandomIntGenerator;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Random;
+import java.util.UUID;
 
 /**
  *
@@ -88,5 +91,28 @@ public class IntegrantesDAO {
         }
 
         return integrantes;
+    }
+    
+    public void cadastrarIntegrante(String nome, String funcao, String banda) {
+       try {
+           if(conexaoBanco != null) {
+                String query = "INSERT INTO integrantes (id, nome, funcao, banda) VALUES (?, ?, ?, ?)";
+                
+                PreparedStatement statement = conexaoBanco.prepareStatement(query);
+                statement.setInt(1, RandomIntGenerator.generate());
+                statement.setString(2, nome);
+                statement.setString(3, funcao);
+                statement.setString(4, banda);
+
+                int rowsAffected  = statement.executeUpdate();
+
+               if(rowsAffected > 0) {
+                    System.out.println("Novo integrante inserido com sucesso");
+               }
+           }
+       }catch (SQLException e) {
+           e.printStackTrace();
+       }
+        
     }
 }
