@@ -9,7 +9,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
@@ -37,15 +36,16 @@ public class IntegrantesDAO {
                     int id = resultSet.getInt("id");
                     String nome = resultSet.getString("nome");
                     String funcao = resultSet.getString("funcao");
+                    String banda = resultSet.getString("banda");
 
-                    IntegranteEntidade integrante = new IntegranteEntidade(id, nome, funcao);
+                    IntegranteEntidade integrante = new IntegranteEntidade(id, nome, funcao, banda);
                     integrantes.add(integrante);
                 }
 
                 resultSet.close();
                 statement.close();
            } else {
-                IntegranteEntidade integrante = new IntegranteEntidade(1, "Renato", "Guitarrista");
+                IntegranteEntidade integrante = new IntegranteEntidade(1, "Renato", "Guitarrista", "Dupin");
                 integrantes.add(integrante);
             }
         } catch (SQLException e) {

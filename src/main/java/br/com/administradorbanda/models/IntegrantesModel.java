@@ -14,7 +14,7 @@ import javax.swing.table.AbstractTableModel;
 public class IntegrantesModel extends AbstractTableModel{
     IntegrantesDAO integrantesDao;
     
-    String[] colunas = {"Nome", "Funcao"};
+    String[] colunas = {"Nome", "Funcao", "Banda"};
     
     public IntegrantesModel(IntegrantesDAO integrantesDao) {
         this.integrantesDao = integrantesDao;
@@ -35,8 +35,10 @@ public class IntegrantesModel extends AbstractTableModel{
        switch(columnIndex) {
            case 0:
                return integrantesDao.buscarIntegrantes().get(rowIndex).getNome();
+           case 1:
+               return integrantesDao.buscarIntegrantes().get(rowIndex).getFuncao();
            default:
-               return integrantesDao.buscarIntegrantes().get(rowIndex).getFuncao(); 
+               return integrantesDao.buscarIntegrantes().get(rowIndex).getBanda(); 
        }
     }
     

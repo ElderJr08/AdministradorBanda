@@ -12,11 +12,14 @@ public class IntegranteEntidade {
     private int id;
     private String nome;
     private String funcao;
+    private String banda;
+
     
-    public IntegranteEntidade(int id, String nome, String funcao){
+    public IntegranteEntidade(int id, String nome, String funcao, String banda){
         this.id = id;
         this.nome = nome;
         this.funcao = funcao;
+        this.banda = banda;
     }
 
     public int getId() {
@@ -41,6 +44,14 @@ public class IntegranteEntidade {
 
     public void setFuncao(String funcao) {
         this.funcao = funcao;
+    }
+
+    public String getBanda() {
+        return banda;
+    }
+
+    public void setBanda(String banda) {
+        this.banda = banda;
     }
     
 }
