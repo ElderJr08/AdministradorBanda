@@ -5,6 +5,8 @@
 package br.com.administradorbanda.models;
 
 import br.com.administradorbanda.dao.MusicasDAO;
+import br.com.administradorbanda.entidades.MusicaEntidade;
+import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 
 /**
@@ -13,16 +15,28 @@ import javax.swing.table.AbstractTableModel;
  */
 public class MusicasModel extends AbstractTableModel{
     MusicasDAO musicasDao;
+    ArrayList<MusicaEntidade> musicas = new ArrayList();
     
     String[] colunas = {"Titulo", "Duracao", "Album", "Banda"};
     
     public MusicasModel(MusicasDAO musicasDao) {
         this.musicasDao = musicasDao;
+        this.musicas = musicasDao.buscarMusicas();
+    }
+    
+    public void buscarMusicaPorTitulo (String tituloMusica) {
+        this.musicas = musicasDao.buscarMusicaPorTitulo(tituloMusica);
+        this.fireTableDataChanged();
+    }
+    
+    public void buscarMusicas () {
+        this.musicas = musicasDao.buscarMusicas();
+        this.fireTableDataChanged();
     }
 
     @Override
     public int getRowCount() {
-        return musicasDao.buscarMusicas().size();
+        return musicas.size();
     }
 
     @Override
@@ -34,13 +48,13 @@ public class MusicasModel extends AbstractTableModel{
     public Object getValueAt(int rowIndex, int columnIndex) {
        switch(columnIndex) {
            case 0:
-               return musicasDao.buscarMusicas().get(rowIndex).getTitulo();
+               return musicas.get(rowIndex).getTitulo();
            case 1:
-               return musicasDao.buscarMusicas().get(rowIndex).getDuracao();
+               return musicas.get(rowIndex).getDuracao();
            case 2:
-               return musicasDao.buscarMusicas().get(rowIndex).getAlbum();
+               return musicas.get(rowIndex).getAlbum();
            default:
-               return musicasDao.buscarMusicas().get(rowIndex).getBanda(); 
+               return musicas.get(rowIndex).getBanda(); 
        }
     }
     

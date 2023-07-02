@@ -76,6 +76,16 @@ public class MusicasView extends javax.swing.JFrame {
         jLabel1.setText("Buscar:");
 
         txtBuscarMusica.setToolTipText("Busca por nome da musica");
+        txtBuscarMusica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBuscarMusicaActionPerformed(evt);
+            }
+        });
+        txtBuscarMusica.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtBuscarMusicaKeyPressed(evt);
+            }
+        });
 
         btnVoltarMusicasView.setText("<");
         btnVoltarMusicasView.addActionListener(new java.awt.event.ActionListener() {
@@ -142,6 +152,20 @@ public class MusicasView extends javax.swing.JFrame {
         JanelaUtils.centralizar(menuView);
         menuView.setVisible(true);
     }//GEN-LAST:event_btnVoltarMusicasViewActionPerformed
+
+    private void txtBuscarMusicaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarMusicaKeyPressed
+        String buscarMusicaValor = txtBuscarMusica.getText();
+        if(buscarMusicaValor.length() == 0){
+            model.buscarMusicas();
+        }
+        if(buscarMusicaValor.length() >= 3) {
+            model.buscarMusicaPorTitulo(buscarMusicaValor);
+        }
+    }//GEN-LAST:event_txtBuscarMusicaKeyPressed
+
+    private void txtBuscarMusicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarMusicaActionPerformed
+
+    }//GEN-LAST:event_txtBuscarMusicaActionPerformed
 
     /**
      * @param args the command line arguments

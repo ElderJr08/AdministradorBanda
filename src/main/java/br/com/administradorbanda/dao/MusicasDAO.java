@@ -56,4 +56,40 @@ public class MusicasDAO {
         return musicas;
     }
     
+    public ArrayList<MusicaEntidade> buscarMusicaPorTitulo(String tituloMusica) {
+        ArrayList<MusicaEntidade> musicas = new ArrayList<>();
+        
+        try {
+            if(conexaoBanco != null) {
+                String query = "SELECT * FROM musicas WHERE UPPER(titulo) LIKE UPPER(?)";
+                
+                PreparedStatement statement = conexaoBanco.prepareStatement(query);
+                statement.setString(1, tituloMusica.concat("%"));
+                
+                ResultSet resultSet = statement.executeQuery();
+
+                while (resultSet.next()) {
+                    int id = resultSet.getInt("id");
+                    String titulo = resultSet.getString("titulo");
+                    int duracao = resultSet.getInt("duracao");
+                    String album = resultSet.getString("album");
+                    String banda = resultSet.getString("banda");
+
+                    MusicaEntidade musica = new MusicaEntidade(id, titulo, duracao, album, banda);
+                    musicas.add(musica);
+                }
+
+                resultSet.close();
+                statement.close();
+           } else {
+                MusicaEntidade musica = new MusicaEntidade(1, "Master", 400, "Puppets", "Metallica");
+                musicas.add(musica);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return musicas;
+    }
+    
 }
