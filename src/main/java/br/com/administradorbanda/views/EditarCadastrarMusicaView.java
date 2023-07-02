@@ -4,19 +4,28 @@
  */
 package br.com.administradorbanda.views;
 
+import br.com.administradorbanda.banco.BancoDeDados;
+import br.com.administradorbanda.dao.MusicasDAO;
+import br.com.administradorbanda.models.MusicasModel;
 import br.com.administradorbanda.utilitarios.JanelaUtils;
+import java.sql.Connection;
 
 /**
  *
  * @author elder
  */
 public class EditarCadastrarMusicaView extends javax.swing.JFrame {
+    Connection conexaoBanco = BancoDeDados.getConnection();
+    MusicasDAO musicasDao = new MusicasDAO(conexaoBanco);
+    MusicasModel model = new MusicasModel(musicasDao);
 
     /**
      * Creates new form CadastrarMusicaView
      */
     public EditarCadastrarMusicaView() {
         initComponents();
+        
+        tabelaEditarCadastrarMusica.setModel(model);
     }
 
     /**
