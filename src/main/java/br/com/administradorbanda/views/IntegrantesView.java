@@ -44,7 +44,7 @@ public class IntegrantesView extends javax.swing.JFrame {
         tabelaListarIntegrantes = new javax.swing.JTable();
         btnEditarCadastrarIntegrante = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        txtBuscarMusica = new javax.swing.JTextField();
+        txtBuscarIntegrante = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -81,7 +81,17 @@ public class IntegrantesView extends javax.swing.JFrame {
 
         jLabel1.setText("Buscar:");
 
-        txtBuscarMusica.setToolTipText("Busca por nome do integrante");
+        txtBuscarIntegrante.setToolTipText("Busca por nome do integrante");
+        txtBuscarIntegrante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBuscarIntegranteActionPerformed(evt);
+            }
+        });
+        txtBuscarIntegrante.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtBuscarIntegranteKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -100,7 +110,7 @@ public class IntegrantesView extends javax.swing.JFrame {
                         .addGap(23, 23, 23)
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
-                        .addComponent(txtBuscarMusica, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtBuscarIntegrante, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14))
         );
@@ -119,7 +129,7 @@ public class IntegrantesView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(txtBuscarMusica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtBuscarIntegrante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14))
@@ -141,6 +151,19 @@ public class IntegrantesView extends javax.swing.JFrame {
         JanelaUtils.centralizar(menuView);
         menuView.setVisible(true);
     }//GEN-LAST:event_btnVoltarIntegrantesViewActionPerformed
+
+    private void txtBuscarIntegranteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarIntegranteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscarIntegranteActionPerformed
+
+    private void txtBuscarIntegranteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarIntegranteKeyPressed
+        String buscarIntegranteValor = txtBuscarIntegrante.getText();
+        if(buscarIntegranteValor.length() >= 3) {
+            model.buscarIntegrantesPorNome(buscarIntegranteValor);
+        } else {
+            model.buscarIntegrantes();
+        }
+    }//GEN-LAST:event_txtBuscarIntegranteKeyPressed
 
     /**
      * @param args the command line arguments
@@ -186,6 +209,6 @@ public class IntegrantesView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabelaListarIntegrantes;
-    private javax.swing.JTextField txtBuscarMusica;
+    private javax.swing.JTextField txtBuscarIntegrante;
     // End of variables declaration//GEN-END:variables
 }

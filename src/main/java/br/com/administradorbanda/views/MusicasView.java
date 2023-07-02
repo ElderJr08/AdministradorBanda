@@ -155,11 +155,11 @@ public class MusicasView extends javax.swing.JFrame {
 
     private void txtBuscarMusicaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarMusicaKeyPressed
         String buscarMusicaValor = txtBuscarMusica.getText();
-        if(buscarMusicaValor.length() == 0){
-            model.buscarMusicas();
-        }
+        
         if(buscarMusicaValor.length() >= 3) {
             model.buscarMusicaPorTitulo(buscarMusicaValor);
+        } else {
+            model.buscarMusicas();
         }
     }//GEN-LAST:event_txtBuscarMusicaKeyPressed
 

@@ -54,4 +54,39 @@ public class IntegrantesDAO {
 
         return integrantes;
     }
+    
+    public ArrayList<IntegranteEntidade> buscarIntegrantesPorNome(String nomeIntegrante) {
+        ArrayList<IntegranteEntidade> integrantes = new ArrayList<>();
+        
+        try {
+            if(conexaoBanco != null) {
+                String query = "SELECT * FROM integrantes WHERE UPPER(nome) LIKE UPPER(?)";
+                
+                PreparedStatement statement = conexaoBanco.prepareStatement(query);
+                statement.setString(1, nomeIntegrante.concat("%"));
+
+                ResultSet resultSet = statement.executeQuery();
+
+                while (resultSet.next()) {
+                    int id = resultSet.getInt("id");
+                    String nome = resultSet.getString("nome");
+                    String funcao = resultSet.getString("funcao");
+                    String banda = resultSet.getString("banda");
+
+                    IntegranteEntidade integrante = new IntegranteEntidade(id, nome, funcao, banda);
+                    integrantes.add(integrante);
+                }
+
+                resultSet.close();
+                statement.close();
+           } else {
+                IntegranteEntidade integrante = new IntegranteEntidade(1, "Renato", "Guitarrista", "Dupin");
+                integrantes.add(integrante);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return integrantes;
+    }
 }

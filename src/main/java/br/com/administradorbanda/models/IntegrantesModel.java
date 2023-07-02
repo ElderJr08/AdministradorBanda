@@ -5,6 +5,8 @@
 package br.com.administradorbanda.models;
 
 import br.com.administradorbanda.dao.IntegrantesDAO;
+import br.com.administradorbanda.entidades.IntegranteEntidade;
+import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 
 /**
@@ -13,16 +15,28 @@ import javax.swing.table.AbstractTableModel;
  */
 public class IntegrantesModel extends AbstractTableModel{
     IntegrantesDAO integrantesDao;
+    ArrayList<IntegranteEntidade> integrantes = new ArrayList();
     
     String[] colunas = {"Nome", "Funcao", "Banda"};
     
     public IntegrantesModel(IntegrantesDAO integrantesDao) {
         this.integrantesDao = integrantesDao;
+        this.integrantes = integrantesDao.buscarIntegrantes();
+    }
+    
+    public void buscarIntegrantesPorNome(String nomeIntegrante) {
+        this.integrantes = integrantesDao.buscarIntegrantesPorNome(nomeIntegrante);
+        this.fireTableDataChanged();
+    }
+    
+    public void buscarIntegrantes() {
+        this.integrantes = integrantesDao.buscarIntegrantes();
+        this.fireTableDataChanged();
     }
 
     @Override
     public int getRowCount() {
-        return integrantesDao.buscarIntegrantes().size();
+        return integrantes.size();
     }
 
     @Override
@@ -34,11 +48,11 @@ public class IntegrantesModel extends AbstractTableModel{
     public Object getValueAt(int rowIndex, int columnIndex) {
        switch(columnIndex) {
            case 0:
-               return integrantesDao.buscarIntegrantes().get(rowIndex).getNome();
+               return integrantes.get(rowIndex).getNome();
            case 1:
-               return integrantesDao.buscarIntegrantes().get(rowIndex).getFuncao();
+               return integrantes.get(rowIndex).getFuncao();
            default:
-               return integrantesDao.buscarIntegrantes().get(rowIndex).getBanda(); 
+               return integrantes.get(rowIndex).getBanda(); 
        }
     }
     
