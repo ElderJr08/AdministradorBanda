@@ -9,6 +9,7 @@ import br.com.administradorbanda.dao.ShowsDAO;
 import br.com.administradorbanda.models.ShowsModel;
 import br.com.administradorbanda.utilitarios.JanelaUtils;
 import java.sql.Connection;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -44,11 +45,9 @@ public class EditarCadastrarShowView extends javax.swing.JFrame {
         btnMusicaSalvar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         btnVoltarEditarCadastrarShowView = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         txtLocal = new javax.swing.JTextField();
         txtData = new javax.swing.JTextField();
-        txtHorario = new javax.swing.JTextField();
         txtBanda = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -72,6 +71,11 @@ public class EditarCadastrarShowView extends javax.swing.JFrame {
         jLabel2.setText("Local");
 
         btnMusicaSalvar.setText("Salvar");
+        btnMusicaSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMusicaSalvarActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Data");
 
@@ -82,19 +86,11 @@ public class EditarCadastrarShowView extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setText("Horario");
-
         jLabel5.setText("Banda");
 
         txtLocal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtLocalActionPerformed(evt);
-            }
-        });
-
-        txtHorario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtHorarioActionPerformed(evt);
             }
         });
 
@@ -106,19 +102,21 @@ public class EditarCadastrarShowView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(81, 81, 81)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel5)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel2))
+                                .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtData)
                                     .addComponent(txtLocal)
-                                    .addComponent(txtHorario)
-                                    .addComponent(txtBanda, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(txtBanda, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtData))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(195, 195, 195)
+                        .addComponent(btnMusicaSalvar))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -127,10 +125,7 @@ public class EditarCadastrarShowView extends javax.swing.JFrame {
                                 .addComponent(btnVoltarEditarCadastrarShowView)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel6)
-                                .addGap(127, 127, 127))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(195, 195, 195)
-                        .addComponent(btnMusicaSalvar)))
+                                .addGap(127, 127, 127)))))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -144,15 +139,11 @@ public class EditarCadastrarShowView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtLocal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtHorario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
+                .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txtBanda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -170,10 +161,6 @@ public class EditarCadastrarShowView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtLocalActionPerformed
 
-    private void txtHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHorarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtHorarioActionPerformed
-
     private void btnVoltarEditarCadastrarShowViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarEditarCadastrarShowViewActionPerformed
         ShowsView showsView = new ShowsView();
         this.dispose();
@@ -181,6 +168,31 @@ public class EditarCadastrarShowView extends javax.swing.JFrame {
         showsView.setVisible(true);
     }//GEN-LAST:event_btnVoltarEditarCadastrarShowViewActionPerformed
 
+    private void btnMusicaSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMusicaSalvarActionPerformed
+        String local = txtLocal.getText();
+        String data = txtData.getText();
+        String banda = txtBanda.getText();
+        
+        if(validarCampos(local, data, banda)) {
+            this.model.cadastrarShow(local, data, banda);
+            limparCampos();   
+        }
+    }//GEN-LAST:event_btnMusicaSalvarActionPerformed
+
+    public void limparCampos() {
+        txtLocal.setText("");
+        txtData.setText("");
+        txtBanda.setText("");
+    }
+    
+    public boolean validarCampos(String local, String data, String banda) {
+        if(local.trim().isEmpty() || data.trim().isEmpty() || banda.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Campos nao preenchidos");
+            return false;
+        }
+        return true;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -224,14 +236,12 @@ public class EditarCadastrarShowView extends javax.swing.JFrame {
     private javax.swing.JButton btnVoltarEditarCadastrarShowView;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabelaEditarCadastrarShow;
     private javax.swing.JTextField txtBanda;
     private javax.swing.JTextField txtData;
-    private javax.swing.JTextField txtHorario;
     private javax.swing.JTextField txtLocal;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,6 +5,7 @@
 package br.com.administradorbanda.dao;
 
 import br.com.administradorbanda.entidades.ShowEntidade;
+import br.com.administradorbanda.utilitarios.RandomIntGenerator;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -88,5 +89,28 @@ public class ShowsDAO {
         }
 
         return shows;
+    }
+    
+    public void cadastrarShow(String local, String data, String banda) {
+       try {
+           if(conexaoBanco != null) {
+                String query = "INSERT INTO shows (id, local, data, banda) VALUES (?, ?, ?, ?)";
+                
+                PreparedStatement statement = conexaoBanco.prepareStatement(query);
+                statement.setInt(1, RandomIntGenerator.generate());
+                statement.setString(2, local);
+                statement.setString(3, data);
+                statement.setString(4, banda);
+
+                int rowsAffected  = statement.executeUpdate();
+
+               if(rowsAffected > 0) {
+                    System.out.println("Novo show inserido com sucesso");
+               }
+           }
+       }catch (SQLException e) {
+           e.printStackTrace();
+       }
+        
     }
 }

@@ -24,6 +24,12 @@ public class ShowsModel extends AbstractTableModel{
         this.shows = showsDao.buscarShows();
     }
     
+    public void cadastrarShow(String local, String data, String banda) {
+        this.showsDao.cadastrarShow(local, data, banda);
+        this.shows = showsDao.buscarShows();
+        this.fireTableDataChanged();
+    }
+    
     public void buscarShowsPorLocal(String localShow) {
         this.shows = showsDao.buscarShowsPorLocal(localShow);
         this.fireTableDataChanged();
