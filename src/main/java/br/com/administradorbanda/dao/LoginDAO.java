@@ -6,6 +6,7 @@ package br.com.administradorbanda.dao;
 
 import br.com.administradorbanda.entidades.LoginEntidade;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -26,10 +27,15 @@ public class LoginDAO {
         
         try {
             if(conexaoBanco != null) {
-                Statement statement = conexaoBanco.createStatement();
-                ResultSet resultSet = statement.executeQuery("SELECT * FROM login WHERE usuario =" + usuario + " AND senha =" + senha);
+                String query = "SELECT * FROM login WHERE usuario = ? AND senha = ?";
                 
-                if(resultSet != null) {
+                PreparedStatement statement = conexaoBanco.prepareStatement(query);
+                statement.setString(1, usuario);
+                statement.setString(2, senha);
+
+                ResultSet resultSet = statement.executeQuery();
+                
+                while (resultSet.next()) {
                     int id = resultSet.getInt("id");
                     String resultUsuario = resultSet.getString("usuario");
                     String resultSenha = resultSet.getString("senha");
@@ -37,12 +43,11 @@ public class LoginDAO {
                     login = new LoginEntidade(id,resultUsuario, resultSenha);
                 }
                 
-
                 resultSet.close();
                 statement.close();
            } else {
-                if(usuario.equals("re") && senha.equals("re@123")){
-                    login = new LoginEntidade(1,"re", "re@123");
+                if(usuario.equals("adm") && senha.equals("adm@123")){
+                    login = new LoginEntidade(1,"adm", "adm@123");
                 }
             }
         } catch (SQLException e) {
