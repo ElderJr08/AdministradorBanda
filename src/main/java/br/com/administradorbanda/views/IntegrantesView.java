@@ -13,7 +13,7 @@ import java.sql.Connection;
 
 /**
  *
- * @author elder
+ * @author renato
  */
 public class IntegrantesView extends javax.swing.JFrame {
     Connection conexaoBanco = BancoDeDados.getConnection();

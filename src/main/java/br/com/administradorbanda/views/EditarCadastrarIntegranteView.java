@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author elder
+ * @author renato
  */
 public class EditarCadastrarIntegranteView extends javax.swing.JFrame {
     Connection conexaoBanco = BancoDeDados.getConnection();

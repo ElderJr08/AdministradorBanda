@@ -6,7 +6,7 @@ package br.com.administradorbanda.entidades;
 
 /**
  *
- * @author elder
+ * @author renato
  */
 public class MusicaEntidade {
     private int id;

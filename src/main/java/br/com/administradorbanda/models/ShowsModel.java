@@ -11,7 +11,7 @@ import javax.swing.table.AbstractTableModel;
 
 /**
  *
- * @author elder
+ * @author renato
  */
 public class ShowsModel extends AbstractTableModel{
     ShowsDAO showsDao;

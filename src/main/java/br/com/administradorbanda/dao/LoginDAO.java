@@ -13,7 +13,7 @@ import java.sql.SQLException;
 
 /**
  *
- * @author elder
+ * @author renato
  */
 public class LoginDAO {
     private Connection conexaoBanco;

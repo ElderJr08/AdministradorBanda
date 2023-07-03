@@ -8,7 +8,7 @@ import java.util.Random;
 
 /**
  *
- * @author elder
+ * @author renato
  */
 public class RandomIntGenerator {
     public static int generate(){

@@ -14,7 +14,7 @@ import java.awt.Window;
 
 /**
  *
- * @author elder
+ * @author renato
  */
 public class MenuView extends javax.swing.JFrame {
 
