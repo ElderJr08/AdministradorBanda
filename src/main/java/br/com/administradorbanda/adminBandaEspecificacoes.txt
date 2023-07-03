@@ -68,3 +68,8 @@ VALUES (2, ' R. Joao Moura, 515 - Sao Paulo', '15/07/2023', 'Dupin');
 Login disponiveis:
 - usuario: re / senha: re@123
 - usuario: admn / senha: adm@123
+
+
+Rodando HSQL Server local:
+Ir até a a pasta onde se encontra .jar e rodar o comando:
+> java -cp .\hsqldb-2.7.2.jar org.hsqldb.Server --database adminBandaDatabase
