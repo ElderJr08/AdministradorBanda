@@ -10,7 +10,8 @@ import java.sql.Statement;
 
 /**
  *
- * @author renato
+ * @author Renato Fioroni 
+* @author Victor Cachucho 
  */
 public class InicializarTabelas {
     

@@ -15,7 +15,8 @@ import java.util.ArrayList;
 
 /**
  *
- * @author renato
+ * @author Renato Fioroni 
+* @author Victor Cachucho 
  */
 public class IntegrantesDAO {
     private Connection conexaoBanco;

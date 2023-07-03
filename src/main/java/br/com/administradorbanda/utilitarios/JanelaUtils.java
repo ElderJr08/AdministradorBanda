@@ -11,7 +11,8 @@ import java.awt.Window;
 
 /**
  *
- * @author renato
+ * @author Renato Fioroni 
+* @author Victor Cachucho 
  */
 public class JanelaUtils {
     public static void centralizar(Window window) {

@@ -10,7 +10,8 @@ import java.sql.SQLException;
 
 /**
  *
- * @author renato
+ * @author Renato Fioroni 
+* @author Victor Cachucho 
  */
 public class BancoDeDados {
     private static final String DB_URL = "jdbc:hsqldb:hsql://localhost/";

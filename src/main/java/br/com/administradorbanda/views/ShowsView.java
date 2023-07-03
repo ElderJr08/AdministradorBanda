@@ -14,7 +14,8 @@ import java.sql.Connection;
 
 /**
  *
- * @author renato
+ * @author Renato Fioroni 
+* @author Victor Cachucho 
  */
 public class ShowsView extends javax.swing.JFrame {
     Connection conexaoBanco = BancoDeDados.getConnection();

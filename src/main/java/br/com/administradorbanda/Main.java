@@ -14,7 +14,8 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author renato
+ * @author Renato Fioroni 
+* @author Victor Cachucho 
  */
 public class Main extends javax.swing.JFrame {
     Connection conexaoBanco = BancoDeDados.getConnection();

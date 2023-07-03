@@ -11,7 +11,8 @@ import javax.swing.table.AbstractTableModel;
 
 /**
  *
- * @author renato
+ * @author Renato Fioroni 
+* @author Victor Cachucho 
  */
 public class MusicasModel extends AbstractTableModel{
     MusicasDAO musicasDao;

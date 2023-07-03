@@ -6,7 +6,8 @@ package br.com.administradorbanda.entidades;
 
 /**
  *
- * @author renato
+ * @author Renato Fioroni 
+* @author Victor Cachucho 
  */
 public class LoginEntidade {
     private int id;
