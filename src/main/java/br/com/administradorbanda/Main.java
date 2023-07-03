@@ -7,12 +7,9 @@ package br.com.administradorbanda;
 import br.com.administradorbanda.banco.BancoDeDados;
 import br.com.administradorbanda.dao.LoginDAO;
 import br.com.administradorbanda.entidades.LoginEntidade;
-import br.com.administradorbanda.utilitarios.InicializarTabelas;
 import br.com.administradorbanda.utilitarios.JanelaUtils;
 import br.com.administradorbanda.views.MenuView;
 import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 /**
@@ -133,27 +130,6 @@ public class Main extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "usuario ou senha incorretos!");
         }
     }//GEN-LAST:event_btnEntrarActionPerformed
-
-    
-    private static void criarTabelaMusicas(Statement statement) throws SQLException {
-        String query = "CREATE TABLE musicas (id INT PRIMARY KEY, titulo VARCHAR(100), duracao INT, album VARCHAR(100), banda VARCHAR(100))";
-        statement.executeUpdate(query);
-    }
-
-    private static void criarTabelaLogin(Statement statement) throws SQLException {
-        String query = "CREATE TABLE login (id INT PRIMARY KEY, usuario VARCHAR(100), senha VARCHAR(100))";
-        statement.executeUpdate(query);
-    }
-
-    private static void criarTabelaIntegrantes(Statement statement) throws SQLException {
-        String query = "CREATE TABLE integrantes (id INT PRIMARY KEY, nome VARCHAR(100), funcao VARCHAR(100), banda VARCHAR(100))";
-        statement.executeUpdate(query);
-    }
-
-    private static void criarTabelaShows(Statement statement) throws SQLException {
-        String query = "CREATE TABLE shows (id INT PRIMARY KEY, local VARCHAR(100), data VARCHAR(100), banda VARCHAR(100))";
-        statement.executeUpdate(query);
-    }
     
     /**
      * @param args the command line arguments

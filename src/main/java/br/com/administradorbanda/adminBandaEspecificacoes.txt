@@ -1,0 +1,70 @@
+Aplicacao Admin Banda
+
+Telas:
+-> Login
+-> Menus
+	- Musicas
+		- Listar/Cadastrar
+	- Integrantes
+		- Listar/Cadastrar
+	- Shows
+		- Listar/Cadastrar
+	
+	
+Tabelas:
+-> Login: usuario e senha
+-> Musica: nome da musica, duracao e banda
+-> Integrantes: nome e funcao
+-> Shows: local do show, data do show  e banda
+
+
+Scripts Tabelas:
+
+CREATE TABLE musicas (
+  id INT PRIMARY KEY,
+  titulo VARCHAR(100),
+  duracao INT,
+  album VARCHAR(100),
+  banda VARCHAR(100)
+);
+
+INSERT INTO musicas (id, titulo, duracao, album, banda)
+VALUES (1, 'Master of Puppets', 504, 'Master of Puppets', 'Metallica');
+
+CREATE TABLE login (
+  id INT PRIMARY KEY,
+  usuario VARCHAR(100),
+  senha VARCHAR(100)
+);
+
+INSERT INTO login (id, usuario, senha)
+VALUES (1, 're', 're@123');
+
+CREATE TABLE integrantes (
+  id INT PRIMARY KEY,
+  nome VARCHAR(100),
+  funcao VARCHAR(100),
+  banda VARCHAR(100)
+);
+
+INSERT INTO integrantes (id, nome, funcao, banda)
+VALUES (1, 'Renato', 'Guitarrista', 'Dupin');
+
+CREATE TABLE shows (
+  id INT PRIMARY KEY,
+  local VARCHAR(100),
+  data VARCHAR(100),
+  banda VARCHAR(100)
+);
+
+
+INSERT INTO shows (id, local, data, banda)
+VALUES (1, ' R. INSERT INTO tabela (coluna1, coluna2, coluna3) VALUES (?, ?, ?) Paulista, 1281 - Sao Paulo', '15/07/2023', 'Dupin');
+
+INSERT INTO shows (id, local, data, banda)
+VALUES (2, ' R. Joao Moura, 515 - Sao Paulo', '15/07/2023', 'Dupin');
+
+
+Login disponiveis:
+- usuario: re / senha: re@123
+- usuario: admn / senha: adm@123
