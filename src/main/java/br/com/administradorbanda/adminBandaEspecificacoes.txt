@@ -1,5 +1,6 @@
 Aplicacao Admin Banda
 
+----------- TELAS ----------------
 Telas:
 -> Login
 -> Menus
@@ -9,8 +10,7 @@ Telas:
 		- Listar/Cadastrar
 	- Shows
 		- Listar/Cadastrar
-	
-	
+		
 Tabelas:
 -> Login: usuario e senha
 -> Musica: nome da musica, duracao e banda
@@ -18,7 +18,15 @@ Tabelas:
 -> Shows: local do show, data do show  e banda
 
 
-Scripts Tabelas:
+----------- SCRIPTS ----------------
+
+Scripts Tabelas 
+** scripts que podem ser usados no HSQL para gerar as tabelas e os registros. 
+** Obs.: Não é necessário criar as tabelas pois a aplicação cria as tabelas casos elas não existam)
+
+
+
+TABELA MUSICA:
 
 CREATE TABLE musicas (
   id INT PRIMARY KEY,
@@ -28,8 +36,13 @@ CREATE TABLE musicas (
   banda VARCHAR(100)
 );
 
+VALORES QUE PODEM SER INSERIDOS DE EXEMPLO:
+
 INSERT INTO musicas (id, titulo, duracao, album, banda)
 VALUES (1, 'Master of Puppets', 504, 'Master of Puppets', 'Metallica');
+
+
+TABELA LOGIN:
 
 CREATE TABLE login (
   id INT PRIMARY KEY,
@@ -37,8 +50,13 @@ CREATE TABLE login (
   senha VARCHAR(100)
 );
 
+VALORES QUE PODEM SER INSERIDOS DE EXEMPLO:
+
 INSERT INTO login (id, usuario, senha)
 VALUES (1, 're', 're@123');
+
+
+TABELA INTEGRANTES:
 
 CREATE TABLE integrantes (
   id INT PRIMARY KEY,
@@ -47,8 +65,13 @@ CREATE TABLE integrantes (
   banda VARCHAR(100)
 );
 
+VALORES QUE PODEM SER INSERIDOS DE EXEMPLO:
+
 INSERT INTO integrantes (id, nome, funcao, banda)
 VALUES (1, 'Renato', 'Guitarrista', 'Dupin');
+
+
+TABELA INTEGRANTES:
 
 CREATE TABLE shows (
   id INT PRIMARY KEY,
@@ -57,6 +80,7 @@ CREATE TABLE shows (
   banda VARCHAR(100)
 );
 
+VALORES QUE PODEM SER INSERIDOS DE EXEMPLO:
 
 INSERT INTO shows (id, local, data, banda)
 VALUES (1, ' R. INSERT INTO tabela (coluna1, coluna2, coluna3) VALUES (?, ?, ?) Paulista, 1281 - Sao Paulo', '15/07/2023', 'Dupin');
@@ -65,11 +89,16 @@ INSERT INTO shows (id, local, data, banda)
 VALUES (2, ' R. Joao Moura, 515 - Sao Paulo', '15/07/2023', 'Dupin');
 
 
+
+----------- GUIA DE BORDO ----------------
+
+Antes de rodar a aplicação, certifique-se de rodar o HSQL Server local
+
+Rodando HSQL Server local:
+Ir até a a pasta onde se encontra .jar(hsqldb-2.7.2) e rodar o comando:
+> java -cp .\hsqldb-2.7.2.jar org.hsqldb.Server --database adminBandaDatabase
+
+
 Login disponiveis:
 - usuario: re / senha: re@123
 - usuario: admn / senha: adm@123
-
-
-Rodando HSQL Server local:
-Ir até a a pasta onde se encontra .jar e rodar o comando:
-> java -cp .\hsqldb-2.7.2.jar org.hsqldb.Server --database adminBandaDatabase
