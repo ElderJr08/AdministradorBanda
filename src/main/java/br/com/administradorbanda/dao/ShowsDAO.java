@@ -5,6 +5,7 @@
 package br.com.administradorbanda.dao;
 
 import br.com.administradorbanda.entidades.ShowEntidade;
+import br.com.administradorbanda.utilitarios.InicializarTabelas;
 import br.com.administradorbanda.utilitarios.RandomIntGenerator;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -21,6 +22,7 @@ public class ShowsDAO {
     
     public ShowsDAO(Connection conexaoBanco) {
         this.conexaoBanco = conexaoBanco;
+        InicializarTabelas.criarTabelaShows(conexaoBanco);
     }
     
     public ArrayList<ShowEntidade> buscarShows() {

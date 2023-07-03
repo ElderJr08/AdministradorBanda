@@ -5,6 +5,7 @@
 package br.com.administradorbanda.dao;
 
 import br.com.administradorbanda.entidades.MusicaEntidade;
+import br.com.administradorbanda.utilitarios.InicializarTabelas;
 import br.com.administradorbanda.utilitarios.RandomIntGenerator;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -21,6 +22,7 @@ public class MusicasDAO {
     
     public MusicasDAO(Connection conexaoBanco) {
         this.conexaoBanco = conexaoBanco;
+        InicializarTabelas.criarTabelaMusicas(conexaoBanco);
     }
     
     public ArrayList<MusicaEntidade> buscarMusicas() {

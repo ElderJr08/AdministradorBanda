@@ -5,6 +5,7 @@
 package br.com.administradorbanda.dao;
 
 import br.com.administradorbanda.entidades.IntegranteEntidade;
+import br.com.administradorbanda.utilitarios.InicializarTabelas;
 import br.com.administradorbanda.utilitarios.RandomIntGenerator;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -21,6 +22,7 @@ public class IntegrantesDAO {
     
     public IntegrantesDAO(Connection conexaoBanco) {
         this.conexaoBanco = conexaoBanco;
+        InicializarTabelas.criarTabelaIntegrantes(conexaoBanco);
     }
     
     public ArrayList<IntegranteEntidade> buscarIntegrantes() {

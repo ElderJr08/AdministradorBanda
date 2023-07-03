@@ -5,6 +5,7 @@
 package br.com.administradorbanda.dao;
 
 import br.com.administradorbanda.entidades.LoginEntidade;
+import br.com.administradorbanda.utilitarios.InicializarTabelas;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,10 +20,11 @@ public class LoginDAO {
     
     public LoginDAO(Connection conexaoBanco) {
         this.conexaoBanco = conexaoBanco;
+        InicializarTabelas.criarTabelaLogin(conexaoBanco);
     }
     
-    public LoginEntidade buscarLogin(String usuario, String senha) {
-       LoginEntidade login = null;
+    public LoginEntidade buscarLogin(String usuario, String senha) {        
+        LoginEntidade login = null;
         
         try {
             if(conexaoBanco != null) {
